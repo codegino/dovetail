@@ -1,0 +1,25 @@
+{
+  "name": "software-engineer-marketing",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "11.1.1",
+    "@emotion/styled": "11.0.0",
+    "next": "latest",
+    "react-dom": "^17.0.2",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@emotion/babel-plugin": "11.0.0",
+    "@types/react": "17.0.29",
+    "eslint-config-next": "11.1.2",
+    "eslint": "8.0.0",
+    "typescript": "4.4.4"
+  }
+}
