@@ -9,6 +9,7 @@ import Heading5 from '../components/typography/Heading5';
 import Heading6 from '../components/typography/Heading6';
 import Paragraph from '../components/typography/Paragraph';
 import CurrentNewsSection from '../modules/current-news/CurrentNewsSection';
+import EventsSection from '../modules/events/EventsSection';
 import Hero from '../modules/landing-hero/Hero';
 
 const Home: NextPage = () => {
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
       <PageContainer>
         <Hero />
         <CurrentNewsSection />
+        <EventsSection />
         <Heading1>heading 1</Heading1>
         <Heading2>heading 2</Heading2>
         <Heading3>heading 3</Heading3>
