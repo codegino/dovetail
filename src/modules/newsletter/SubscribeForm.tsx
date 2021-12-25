@@ -1,5 +1,5 @@
+import type {FormEvent, FunctionComponent} from 'react';
 import styled from '@emotion/styled';
-import {FunctionComponent} from 'react';
 import Button from '../../components/basic/Button';
 import Input from '../../components/basic/Input';
 import Select from '../../components/basic/Select';
@@ -11,9 +11,20 @@ const SubscribeForm: FunctionComponent<{
     fullName: string;
     email: string;
   }) => void;
-}> = () => {
+}> = ({onSubmit}) => {
+  const handleSubmit = (e: FormEvent<SubscribeFormElement>) => {
+    e.preventDefault();
+    const {email, fullName, eventType} = e.currentTarget.elements;
+
+    onSubmit({
+      eventType: eventType.value,
+      email: email.value,
+      fullName: fullName.value,
+    });
+  };
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <div className="form-control">
         <label htmlFor="eventType">Type of event</label>
         <Select
@@ -52,6 +63,15 @@ const SubscribeForm: FunctionComponent<{
     </Form>
   );
 };
+
+interface FormElements extends HTMLFormControlsCollection {
+  eventType: HTMLSelectElement;
+  fullName: HTMLInputElement;
+  email: HTMLInputElement;
+}
+interface SubscribeFormElement extends HTMLFormElement {
+  readonly elements: FormElements;
+}
 
 const eventTypes = [
   {
