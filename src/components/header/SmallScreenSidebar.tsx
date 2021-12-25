@@ -1,5 +1,5 @@
-import type {MouseEvent, FunctionComponent} from 'react';
 import styled from '@emotion/styled';
+import type {MouseEvent, FunctionComponent} from 'react';
 import {mq} from '../../utils/media-query';
 import Button from '../basic/Button';
 import Footer from '../footer/Footer';
@@ -7,6 +7,7 @@ import Heading5 from '../typography/Heading5';
 import Actions from './Actions';
 import LogoContainer from './LogoContainer';
 import Navigation from './Navigation';
+import {Global, css} from '@emotion/react';
 
 const SmallScreenSidebar: FunctionComponent<{
   isOpen: boolean;
@@ -37,6 +38,23 @@ const SmallScreenSidebar: FunctionComponent<{
         </ActionsWrapper>
         <Footer />
       </Content>
+      <Global
+        styles={css`
+          html {
+            overflow: hidden;
+          }
+
+          .sidebar-content {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            overflow-y: scroll;
+          }
+
+          .sidebar-content::-webkit-scrollbar {
+            display: none;
+          }
+        `}
+      />
     </Container>
   );
 };
