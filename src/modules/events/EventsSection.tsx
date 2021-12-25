@@ -3,7 +3,9 @@ import React from 'react';
 import Image from 'next/image';
 import Heading2 from '../../components/typography/Heading2';
 import Description from '../../components/typography/Paragraph';
+import {mq} from '../../utils/media-query';
 import Gap from '../../components/basic/Gap';
+import {DTEvent, events} from './data';
 
 const EventsSection = () => {
   return (
@@ -22,10 +24,29 @@ const EventsSection = () => {
           relive the hype? Watch our past events and get them feels.
         </Description>
       </EventsHeader>
-
+      <EventsContent>
+        {events.map((event, i) => (
+          <EventDetails
+            key={i}
+            imgUrl={event.imgUrl}
+            label={event.label}
+            title={event.title}
+          />
+        ))}
+      </EventsContent>
       <Gap color="light" />
       <Wave />
     </Container>
+  );
+};
+
+const EventDetails = ({imgUrl, label, title}: DTEvent) => {
+  return (
+    <div>
+      <p>{imgUrl}</p>
+      <p>{label}</p>
+      <p>{title}</p>
+    </div>
   );
 };
 
@@ -40,6 +61,15 @@ const Wave = styled.div({
   left: 0,
   right: 0,
 });
+
+const EventsContent = styled.div(
+  mq({
+    display: 'flex',
+    flexDirection: ['column', '', '', 'row'],
+    gap: 32,
+    marginTop: 80,
+  }),
+);
 
 const EventsHeader = styled.section({
   display: 'flex',
