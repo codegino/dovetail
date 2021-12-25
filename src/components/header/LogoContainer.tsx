@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
+import React from 'react';
 import Image from 'next/image';
+import {mq} from '../../utils/media-query';
 import Link from 'next/link';
 
 const LogoContainer = () => {
@@ -13,7 +15,7 @@ const LogoContainer = () => {
             layout="fixed"
             height={32}
             width={128}
-            alt="Logo"
+            alt="Dovetail"
           />
         </Logo>
       </Link>
@@ -34,18 +36,20 @@ const Container = styled.div({
   width: '33.3vw',
 });
 
-const HiringIndicator = styled.div({
-  backgroundColor: '#EFD4AA',
-  borderRadius: 20,
-  padding: '4px 8px',
-  fontWeight: 600,
-  fontSize: 12,
-  lineHeight: '18px',
-  fontFamily: 'Poppins',
-  minWidth: 94,
-  marginLeft: 21,
-  display: 'inline-block',
-  verticalAlign: 'middle',
-});
+const HiringIndicator = styled.div(
+  mq({
+    backgroundColor: '#EFD4AA',
+    borderRadius: 20,
+    padding: '4px 8px',
+    fontWeight: 600,
+    fontSize: 12,
+    lineHeight: '18px',
+    fontFamily: 'Poppins',
+    minWidth: 94,
+    marginLeft: 21,
+    display: ['none', 'inline-block'],
+    verticalAlign: 'middle',
+  }),
+);
 
 export default LogoContainer;

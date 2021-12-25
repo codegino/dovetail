@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import {mq} from '../../utils/media-query';
 import Anchor from '../basic/Anchor';
 
 const Navigation = () => {
@@ -22,10 +23,12 @@ const Container = styled.nav({
   display: 'flex',
 });
 
-const Ul = styled.ul({
-  display: 'flex',
-  flexDirection: 'row',
-});
+const Ul = styled.ul(
+  mq({
+    display: 'flex',
+    flexDirection: ['column', , 'row'],
+  }),
+);
 
 const Li = styled.li({
   listStyle: 'none',

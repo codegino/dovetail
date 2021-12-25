@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import {mq} from '../../utils/media-query';
 import Actions from './Actions';
 import Navigation from './Navigation';
 
@@ -20,10 +21,12 @@ const CenteredNavigation = styled.div({
   width: '33.3vw',
 });
 
-const Container = styled.div({
-  display: 'flex',
-  justifyContent: 'flex-end',
-  flex: 1,
-});
+const Container = styled.div(
+  mq({
+    display: ['none', , , 'flex'],
+    justifyContent: 'flex-end',
+    flex: 1,
+  }),
+);
 
 export default WideScreenContent;
