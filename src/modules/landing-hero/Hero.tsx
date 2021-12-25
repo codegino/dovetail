@@ -3,6 +3,8 @@ import React from 'react';
 import Button from '../../components/basic/Button';
 import Description from '../../components/typography/Paragraph';
 import Heading1 from '../../components/typography/Heading1';
+import Image from 'next/image';
+
 import {mq} from '../../utils/media-query';
 import Gap from '../../components/basic/Gap';
 
@@ -26,6 +28,18 @@ const Hero = () => {
             Give me a heads up
           </Button>
         </HeroCaption>
+        <HeroIllustration>
+          <Image
+            priority
+            src="/assets/illustration-hero.svg"
+            layout="responsive"
+            height={920}
+            width={690}
+            objectFit="cover"
+            className="illustration-hero"
+            alt="illustration-hero"
+          />
+        </HeroIllustration>
       </Content>
       <Gap color="dark" />
       <Wave />
@@ -51,6 +65,17 @@ const HeroCaption = styled.div(
     flexDirection: 'column',
     maxWidth: [330, 450, , , 564],
     minWidth: [330, 450, , , 564],
+  }),
+);
+
+const HeroIllustration = styled.div(
+  mq({
+    height: [500, , 550, 700],
+    width: [400, 450, 510, 670],
+    minWidth: [400, 450, 510, 670],
+    '.illustration-hero': {
+      top: ['-25% !important', , , '-35% !important'],
+    },
   }),
 );
 
