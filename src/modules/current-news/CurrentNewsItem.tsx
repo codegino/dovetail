@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import React, {FunctionComponent} from 'react';
 import Description from '../../components/typography/Paragraph';
+import Image from 'next/image';
 import {mq} from '../../utils/media-query';
 import Button from '../../components/basic/Button';
 import Heading3 from '../../components/typography/Heading3';
@@ -13,6 +14,15 @@ const CurrentNewsItem: FunctionComponent<{
 }> = ({imgUrl, title, description, ctaText}) => {
   return (
     <Container>
+      <ImageContainer>
+        <Image
+          src={imgUrl}
+          layout="responsive"
+          width={544}
+          height={340}
+          alt="News"
+        />
+      </ImageContainer>
       <Content>
         <DynamicHeading>{title}</DynamicHeading>
         <Description>{description}</Description>
@@ -38,6 +48,17 @@ const Content = styled.section(
     maxWidth: [300, , , 480],
     minWidth: [300, , , 480],
     textAlign: 'left',
+  }),
+);
+
+const ImageContainer = styled.div(
+  mq({
+    borderRadius: 15,
+    overflow: 'hidden',
+    backgroundColor: 'red',
+    maxWidth: [340, 410, 450, 544],
+    minWidth: [340, 410, 450, 544],
+    height: [200, 240, , 340],
   }),
 );
 
