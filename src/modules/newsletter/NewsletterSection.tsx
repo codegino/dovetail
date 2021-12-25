@@ -23,8 +23,8 @@ const NewsletterSection = () => {
         email,
         fullName,
       }),
-    }).then(() => {
-      alert('working!');
+    }).then(e => {
+      alert(e);
     });
   };
 
