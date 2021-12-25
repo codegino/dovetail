@@ -25,14 +25,6 @@ const Home: NextPage = () => {
         <CurrentNewsSection />
         <EventsSection />
         <NewsletterSection />
-        <Heading1>heading 1</Heading1>
-        <Heading2>heading 2</Heading2>
-        <Heading3>heading 3</Heading3>
-        <Heading5>heading 5</Heading5>
-        <Heading6>heading 6</Heading6>
-        <Paragraph>paragraph</Paragraph>
-        <Anchor href="/test">Test</Anchor>
-        Welcome, please insert the landing page you‘re building here. Good luck!
       </PageContainer>
     </>
   );
