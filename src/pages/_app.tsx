@@ -2,6 +2,7 @@ import {css, Global} from '@emotion/react';
 import type {AppProps} from 'next/app';
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
+import {ParallaxProvider} from 'react-scroll-parallax';
 
 const App = ({Component, pageProps}: AppProps) => (
   <>
@@ -27,14 +28,15 @@ const App = ({Component, pageProps}: AppProps) => (
         }
 
         div,
-        a,
-        p {
+        a {
           color: var(--color-primary);
         }
       `}
     />
     <Header />
-    <Component {...pageProps} />
+    <ParallaxProvider>
+      <Component {...pageProps} />
+    </ParallaxProvider>
     <Footer />
   </>
 );

@@ -6,6 +6,7 @@ import {mq} from '../../utils/media-query';
 import SubscribeForm from './SubscribeForm';
 import Image from 'next/image';
 import Gap from '../../components/basic/Gap';
+import {Parallax} from 'react-scroll-parallax';
 
 const NewsletterSection = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -68,13 +69,15 @@ const NewsletterSection = () => {
         </Content>
       ) : (
         <Content>
-          <ContentMessage>
-            <Heading3>Keen for a heads up on upcoming events?</Heading3>
-            <Description>
-              Register your interest and we promise you’ll be the first to know
-              what we’ve got in store.
-            </Description>
-          </ContentMessage>
+          <Parallax className="custom-class" y={[-20, 5]}>
+            <ContentMessage>
+              <Heading3>Keen for a heads up on upcoming events?</Heading3>
+              <Description>
+                Register your interest and we promise you’ll be the first to
+                know what we’ve got in store.
+              </Description>
+            </ContentMessage>
+          </Parallax>
           <FormWrapper>
             {error && <ErrorMessage>{error}</ErrorMessage>}
             <SubscribeForm onSubmit={handleSubmit} />

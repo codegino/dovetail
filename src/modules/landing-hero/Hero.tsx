@@ -4,6 +4,7 @@ import Button from '../../components/basic/Button';
 import Description from '../../components/typography/Paragraph';
 import Heading1 from '../../components/typography/Heading1';
 import Image from 'next/image';
+import {Parallax} from 'react-scroll-parallax';
 
 import {mq} from '../../utils/media-query';
 import Gap from '../../components/basic/Gap';
@@ -19,27 +20,31 @@ const Hero = () => {
             Bringing you an intoxicating slew of hot product events form jamming
             with industry experts to live demo Q&As. Get excited!
           </Description>
-          <Button
-            style={{
-              width: '198px',
-              marginTop: '56px',
-            }}
-          >
-            Give me a heads up
-          </Button>
+          <Parallax className="custom-class" y={[-55, 0]} x={[-5, 5]}>
+            <Button
+              style={{
+                width: '198px',
+                marginTop: '56px',
+              }}
+            >
+              Give me a heads up
+            </Button>
+          </Parallax>
         </HeroCaption>
-        <HeroIllustration>
-          <Image
-            priority
-            src="/assets/illustration-hero.svg"
-            layout="responsive"
-            height={920}
-            width={690}
-            objectFit="cover"
-            className="illustration-hero"
-            alt="illustration-hero"
-          />
-        </HeroIllustration>
+        <Parallax className="custom-class" y={[-10, 10]}>
+          <HeroIllustration>
+            <Image
+              priority
+              src="/assets/illustration-hero.svg"
+              layout="responsive"
+              height={920}
+              width={690}
+              objectFit="cover"
+              className="illustration-hero"
+              alt="illustration hero"
+            />
+          </HeroIllustration>
+        </Parallax>
       </Content>
       <Gap color="dark" />
       <Wave />
