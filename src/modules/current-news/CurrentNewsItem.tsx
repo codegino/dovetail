@@ -5,6 +5,7 @@ import Image from 'next/image';
 import {mq} from '../../utils/media-query';
 import Button from '../../components/basic/Button';
 import Heading3 from '../../components/typography/Heading3';
+import {Parallax} from 'react-scroll-parallax';
 
 const CurrentNewsItem: FunctionComponent<{
   imgUrl: string;
@@ -14,20 +15,24 @@ const CurrentNewsItem: FunctionComponent<{
 }> = ({imgUrl, title, description, ctaText}) => {
   return (
     <Container>
-      <ImageContainer>
-        <Image
-          src={imgUrl}
-          layout="responsive"
-          width={544}
-          height={340}
-          alt="News"
-        />
-      </ImageContainer>
-      <Content>
-        <DynamicHeading>{title}</DynamicHeading>
-        <Description>{description}</Description>
-        <CtaButton>{ctaText}</CtaButton>
-      </Content>
+      <Parallax className="custom-class" x={[-5, 5]}>
+        <ImageContainer>
+          <Image
+            src={imgUrl}
+            layout="responsive"
+            width={544}
+            height={340}
+            alt="News"
+          />
+        </ImageContainer>
+      </Parallax>
+      <Parallax className="custom-class" x={[10, -10]} y={[-5, 5]}>
+        <Content>
+          <DynamicHeading>{title}</DynamicHeading>
+          <Description>{description}</Description>
+          <CtaButton>{ctaText}</CtaButton>
+        </Content>
+      </Parallax>
     </Container>
   );
 };

@@ -3,36 +3,48 @@ import React from 'react';
 import Image from 'next/image';
 import Heading2 from '../../components/typography/Heading2';
 import Description from '../../components/typography/Paragraph';
+import EventDetails from './EventDetails';
 import {mq} from '../../utils/media-query';
+import {Parallax} from 'react-scroll-parallax';
 import Gap from '../../components/basic/Gap';
 import {events} from './data';
-import EventDetails from './EventsDetails';
 
 const EventsSection = () => {
   return (
     <Container>
       <EventsHeader>
-        <Image
-          src="/assets/illustration-spot.svg"
-          layout="fixed"
-          alt="illustration spot"
-          height={100}
-          width={180}
-        />
-        <Heading2>Events repository</Heading2>
-        <Description style={{textAlign: 'center'}}>
-          Missed an event because you were too busy partying or just want to
-          relive the hype? Watch our past events and get them feels.
-        </Description>
+        <Parallax className="custom-class" y={[-100, 50]}>
+          <Image
+            src="/assets/illustration-spot.svg"
+            layout="fixed"
+            alt="illustration spot"
+            height={100}
+            width={180}
+          />
+        </Parallax>
+        <Parallax className="custom-class" y={[-5, 15]}>
+          <Heading2>Events repository</Heading2>
+        </Parallax>
+        <Parallax className="custom-class" y={[5, -5]}>
+          <Description style={{textAlign: 'center'}}>
+            Missed an event because you were too busy partying or just want to
+            relive the hype? Watch our past events and get them feels.
+          </Description>
+        </Parallax>
       </EventsHeader>
       <EventsContent>
         {events.map((event, i) => (
-          <EventDetails
+          <Parallax
+            className="custom-class"
+            y={i % 2 === 0 ? [-10, 10] : [10, -10]}
             key={i}
-            imgUrl={event.imgUrl}
-            label={event.label}
-            title={event.title}
-          />
+          >
+            <EventDetails
+              imgUrl={event.imgUrl}
+              label={event.label}
+              title={event.title}
+            />
+          </Parallax>
         ))}
       </EventsContent>
       <Gap color="light" />
