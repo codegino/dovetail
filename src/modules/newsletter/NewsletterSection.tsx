@@ -1,11 +1,16 @@
 import styled from '@emotion/styled';
+import React, {useState} from 'react';
 import Description from '../../components/typography/Paragraph';
 import Heading3 from '../../components/typography/Heading3';
 import {mq} from '../../utils/media-query';
 import SubscribeForm from './SubscribeForm';
+import Image from 'next/image';
 import Gap from '../../components/basic/Gap';
 
 const NewsletterSection = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string>();
+
   const handleSubmit = ({
     email,
     eventType,
@@ -23,26 +28,59 @@ const NewsletterSection = () => {
         email,
         fullName,
       }),
-    }).then(e => {
-      alert(e);
-    });
+    })
+      .then(async (res: any) => {
+        const body = await res.json();
+        if (res.status >= 400 && res.status < 600) {
+          throw new Error(body.message);
+        }
+        return body;
+      })
+      .then(() => {
+        setIsSubmitted(true);
+        setError('');
+      })
+      .catch(err => {
+        setError(err.message);
+      });
   };
 
   return (
     <Container>
       <Gap color="dark" />
-      <Content>
-        <ContentMessage>
-          <Heading3>Keen for a heads up on upcoming events?</Heading3>
-          <Description>
-            Register your interest and we promise you’ll be the first to know
-            what we’ve got in store.
-          </Description>
-        </ContentMessage>
-        <FormWrapper>
-          <SubscribeForm onSubmit={handleSubmit} />
-        </FormWrapper>
-      </Content>
+      {isSubmitted ? (
+        <Content>
+          <ContentMessage>
+            <Heading3>Welcome to the Dovetail events club!</Heading3>
+            <Description>
+              Keep and eye out for all the exclusive product and research
+              goodness coming your way.
+            </Description>
+          </ContentMessage>
+
+          <Image
+            src="/assets/illustration-success.svg"
+            layout="fixed"
+            width="544"
+            height="436"
+            alt="Success"
+          />
+        </Content>
+      ) : (
+        <Content>
+          <ContentMessage>
+            <Heading3>Keen for a heads up on upcoming events?</Heading3>
+            <Description>
+              Register your interest and we promise you’ll be the first to know
+              what we’ve got in store.
+            </Description>
+          </ContentMessage>
+          <FormWrapper>
+            {error && <ErrorMessage>{error}</ErrorMessage>}
+            <SubscribeForm onSubmit={handleSubmit} />
+          </FormWrapper>
+        </Content>
+      )}
       <Gap color="dark" />
     </Container>
   );
@@ -50,6 +88,13 @@ const NewsletterSection = () => {
 
 const FormWrapper = styled.div({
   position: 'relative',
+});
+
+const ErrorMessage = styled.div({
+  color: 'red',
+  position: 'absolute',
+  left: 20,
+  bottom: 60,
 });
 
 const Content = styled.article(

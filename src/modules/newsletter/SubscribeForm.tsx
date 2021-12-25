@@ -59,7 +59,14 @@ const SubscribeForm: FunctionComponent<{
         />
       </div>
 
-      <Button type="submit">Let me know!</Button>
+      <Button
+        type="submit"
+        onClick={() => {
+          /*This is a workaround for unimplemted alert message*/
+        }}
+      >
+        Let me know!
+      </Button>
     </Form>
   );
 };
