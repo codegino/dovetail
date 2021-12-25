@@ -6,6 +6,28 @@ import SubscribeForm from './SubscribeForm';
 import Gap from '../../components/basic/Gap';
 
 const NewsletterSection = () => {
+  const handleSubmit = ({
+    email,
+    eventType,
+    fullName,
+  }: {
+    eventType: string;
+    fullName: string;
+    email: string;
+  }) => {
+    fetch('/api/submit', {
+      method: 'POST',
+      headers: new Headers({'Content-Type': 'application/json'}),
+      body: JSON.stringify({
+        eventType,
+        email,
+        fullName,
+      }),
+    }).then(() => {
+      alert('working!');
+    });
+  };
+
   return (
     <Container>
       <Gap color="dark" />
@@ -18,7 +40,7 @@ const NewsletterSection = () => {
           </Description>
         </ContentMessage>
         <FormWrapper>
-          <SubscribeForm onSubmit={e => alert(e)} />
+          <SubscribeForm onSubmit={handleSubmit} />
         </FormWrapper>
       </Content>
       <Gap color="dark" />
