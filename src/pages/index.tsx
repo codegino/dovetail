@@ -11,6 +11,7 @@ import Paragraph from '../components/typography/Paragraph';
 import CurrentNewsSection from '../modules/current-news/CurrentNewsSection';
 import EventsSection from '../modules/events/EventsSection';
 import Hero from '../modules/landing-hero/Hero';
+import NewsletterSection from '../modules/newsletter/NewsletterSection';
 
 const Home: NextPage = () => {
   return (
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
         <Hero />
         <CurrentNewsSection />
         <EventsSection />
+        <NewsletterSection />
         <Heading1>heading 1</Heading1>
         <Heading2>heading 2</Heading2>
         <Heading3>heading 3</Heading3>
