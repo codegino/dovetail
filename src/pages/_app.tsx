@@ -1,8 +1,9 @@
-import { css, Global } from "@emotion/react";
-import type { AppProps } from "next/app";
-import Header from "../components/header/Header";
+import {css, Global} from '@emotion/react';
+import type {AppProps} from 'next/app';
+import Footer from '../components/footer/Footer';
+import Header from '../components/header/Header';
 
-const App = ({ Component, pageProps }: AppProps) => (
+const App = ({Component, pageProps}: AppProps) => (
   <>
     <Global
       styles={css`
@@ -34,6 +35,7 @@ const App = ({ Component, pageProps }: AppProps) => (
     />
     <Header />
     <Component {...pageProps} />
+    <Footer />
   </>
 );
 
