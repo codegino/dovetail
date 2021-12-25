@@ -1,14 +1,33 @@
 import styled from '@emotion/styled';
 import React from 'react';
-
+import Button from '../../components/basic/Button';
+import Description from '../../components/typography/Paragraph';
+import Heading1 from '../../components/typography/Heading1';
 import {mq} from '../../utils/media-query';
+import Gap from '../../components/basic/Gap';
 
 const Hero = () => {
   return (
     <Container>
+      <Gap color="dark" />
       <Content>
-        <div>Hello</div>
+        <HeroCaption>
+          <Heading1>Time to get your research game lit</Heading1>
+          <Description>
+            Bringing you an intoxicating slew of hot product events form jamming
+            with industry experts to live demo Q&As. Get excited!
+          </Description>
+          <Button
+            style={{
+              width: '198px',
+              marginTop: '56px',
+            }}
+          >
+            Give me a heads up
+          </Button>
+        </HeroCaption>
       </Content>
+      <Gap color="dark" />
       <Wave />
     </Container>
   );
@@ -23,6 +42,15 @@ const Content = styled.div(
     position: 'relative',
     padding: '0 5%',
     height: [900, , , 600],
+  }),
+);
+
+const HeroCaption = styled.div(
+  mq({
+    display: 'flex',
+    flexDirection: 'column',
+    maxWidth: [330, 450, , , 564],
+    minWidth: [330, 450, , , 564],
   }),
 );
 
