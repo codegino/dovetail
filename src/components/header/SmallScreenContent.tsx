@@ -2,6 +2,7 @@ import {useState} from 'react';
 import styled from '@emotion/styled';
 import {mq} from '../../utils/media-query';
 import Button from '../basic/Button';
+import SmallScreenSidebar from './SmallScreenSidebar';
 
 export default function SmallScreenContent() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,7 @@ export default function SmallScreenContent() {
   return (
     <div>
       <Menu onClick={openSidebar}>Menu</Menu>
+      {isOpen && <SmallScreenSidebar isOpen={isOpen} setIsOpen={setIsOpen} />}
     </div>
   );
 }
