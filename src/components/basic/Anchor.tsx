@@ -1,15 +1,18 @@
-import styled from "@emotion/styled";
-import type { FunctionComponent } from "react";
+import styled from '@emotion/styled';
+import type {FunctionComponent} from 'react';
 
-const Anchor: FunctionComponent<JSX.IntrinsicElements["a"]> = (props) => {
+const Anchor: FunctionComponent<JSX.IntrinsicElements['a']> = props => {
   return <Element {...props} />;
 };
 
 const Element = styled.a({
-  fontFamily: "Manrope",
-  textDecoration: "none",
-  margin: "0 16px",
-  cursor: "pointer",
+  fontFamily: 'Manrope',
+  textDecoration: 'none',
+  margin: '0 16px',
+  cursor: 'pointer',
+  '&:hover': {
+    textDecoration: 'underline',
+  },
 });
 
 export default Anchor;
