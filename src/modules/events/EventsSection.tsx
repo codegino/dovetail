@@ -1,12 +1,28 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import Image from 'next/image';
+import Heading2 from '../../components/typography/Heading2';
+import Description from '../../components/typography/Paragraph';
 import Gap from '../../components/basic/Gap';
 
 const EventsSection = () => {
   return (
     <Container>
-      <EventsHeader>Header</EventsHeader>
-      Content
+      <EventsHeader>
+        <Image
+          src="/assets/illustration-spot.svg"
+          layout="fixed"
+          alt="illustration spot"
+          height={100}
+          width={180}
+        />
+        <Heading2>Events repository</Heading2>
+        <Description style={{textAlign: 'center'}}>
+          Missed an event because you were too busy partying or just want to
+          relive the hype? Watch our past events and get them feels.
+        </Description>
+      </EventsHeader>
+
       <Gap color="light" />
       <Wave />
     </Container>
