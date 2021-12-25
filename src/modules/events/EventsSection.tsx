@@ -5,7 +5,8 @@ import Heading2 from '../../components/typography/Heading2';
 import Description from '../../components/typography/Paragraph';
 import {mq} from '../../utils/media-query';
 import Gap from '../../components/basic/Gap';
-import {DTEvent, events} from './data';
+import {events} from './data';
+import EventDetails from './EventsDetails';
 
 const EventsSection = () => {
   return (
@@ -37,16 +38,6 @@ const EventsSection = () => {
       <Gap color="light" />
       <Wave />
     </Container>
-  );
-};
-
-const EventDetails = ({imgUrl, label, title}: DTEvent) => {
-  return (
-    <div>
-      <p>{imgUrl}</p>
-      <p>{label}</p>
-      <p>{title}</p>
-    </div>
   );
 };
 
