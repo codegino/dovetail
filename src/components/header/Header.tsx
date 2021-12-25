@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
-import Actions from './Actions';
 import LogoContainer from './LogoContainer';
+import WideScreenContent from './WideScreenContent';
 
 const Header = () => {
   return (
     <Container>
       <LogoContainer />
-      <Actions />
+      <WideScreenContent />
     </Container>
   );
 };
