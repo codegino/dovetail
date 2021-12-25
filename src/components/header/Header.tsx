@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
+import LogoContainer from "./LogoContainer";
 
 const Header = () => {
   return (
     <Container>
-      <div>1</div>
+      <LogoContainer />
       <div>2</div>
     </Container>
   );
