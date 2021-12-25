@@ -2,19 +2,19 @@ import styled from '@emotion/styled';
 import React from 'react';
 import {mq} from '../../utils/media-query';
 import Gap from '../basic/Gap';
+import {productSitemap} from './sitemap-links';
+import SiteMap from './Sitemap';
 const Footer = () => {
   return (
     <Container>
       <Gap color="dark" />
       <Content>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
+        <SiteMap title={productSitemap.title} links={productSitemap.links} />
+        <SiteMap title={productSitemap.title} links={productSitemap.links} />
+        <SiteMap title={productSitemap.title} links={productSitemap.links} />
+        <SiteMap title={productSitemap.title} links={productSitemap.links} />
+        <SiteMap title={productSitemap.title} links={productSitemap.links} />
+        <SiteMap title={productSitemap.title} links={productSitemap.links} />
       </Content>
       <Gap color="dark" />
     </Container>
