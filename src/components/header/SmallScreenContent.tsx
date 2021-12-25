@@ -1,8 +1,12 @@
 import {useState} from 'react';
+import dynamic from 'next/dynamic';
 import styled from '@emotion/styled';
 import {mq} from '../../utils/media-query';
 import Button from '../basic/Button';
-import SmallScreenSidebar from './SmallScreenSidebar';
+
+const SmallScreenSidebar = dynamic(() => import('./SmallScreenSidebar'), {
+  ssr: false,
+});
 
 export default function SmallScreenContent() {
   const [isOpen, setIsOpen] = useState(false);
