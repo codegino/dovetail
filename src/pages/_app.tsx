@@ -17,6 +17,18 @@ const App = ({ Component, pageProps }: AppProps) => (
         * {
           box-sizing: border-box;
         }
+
+        :root {
+          --color-primary: #230078;
+          --color-background: #fefbf5;
+          --color-background-dark: #fdf4e6;
+        }
+
+        div,
+        a,
+        p {
+          color: var(--color-primary);
+        }
       `}
     />
     <Component {...pageProps} />
