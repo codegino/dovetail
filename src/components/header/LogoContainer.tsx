@@ -1,7 +1,6 @@
-import styled from "@emotion/styled";
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import styled from '@emotion/styled';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const LogoContainer = () => {
   return (
@@ -24,29 +23,29 @@ const LogoContainer = () => {
 };
 
 const Logo = styled.div({
-  cursor: "pointer",
+  cursor: 'pointer',
 });
 
 const Container = styled.div({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-start",
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
   paddingLeft: 0,
-  width: "33.3vw",
+  width: '33.3vw',
 });
 
 const HiringIndicator = styled.div({
-  backgroundColor: "#EFD4AA",
+  backgroundColor: '#EFD4AA',
   borderRadius: 20,
-  padding: "4px 8px",
+  padding: '4px 8px',
   fontWeight: 600,
   fontSize: 12,
-  lineHeight: "18px",
-  fontFamily: "Poppins",
+  lineHeight: '18px',
+  fontFamily: 'Poppins',
   minWidth: 94,
   marginLeft: 21,
-  display: "inline-block",
-  verticalAlign: "middle",
+  display: 'inline-block',
+  verticalAlign: 'middle',
 });
 
 export default LogoContainer;
