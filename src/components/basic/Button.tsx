@@ -5,7 +5,7 @@ const Button: FunctionComponent<JSX.IntrinsicElements['button']> = ({
   onClick = () => alert('Not implemented'),
   ...props
 }) => {
-  return <Element {...props} onClick={onClick} />;
+  return <Element type="button" {...props} onClick={onClick} />;
 };
 
 const Element = styled.button({

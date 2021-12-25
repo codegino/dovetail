@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import Description from '../../components/typography/Paragraph';
 import Heading3 from '../../components/typography/Heading3';
 import {mq} from '../../utils/media-query';
+import SubscribeForm from './SubscribeForm';
 import Gap from '../../components/basic/Gap';
 
 const NewsletterSection = () => {
@@ -17,7 +18,7 @@ const NewsletterSection = () => {
           </Description>
         </ContentMessage>
         <FormWrapper>
-          <form>Form Here</form>
+          <SubscribeForm onSubmit={e => alert(e)} />
         </FormWrapper>
       </Content>
       <Gap color="dark" />
